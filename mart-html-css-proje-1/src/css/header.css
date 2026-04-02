@@ -1,3 +1,6 @@
+/* =========================================
+   1. GOOGLE FONTS VE DIŞA AKTARIMLAR
+========================================= */
 /* Projede kullanılacak Inter Tight fontunun farklı kalınlıklarını (500, 600, 700) Google'dan çeker */
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&display=swap');
 
@@ -13,13 +16,25 @@
   --color-grey: #858585; /* Gri detay rengi */
   --font-family-main: 'Inter Tight', sans-serif; /* Ana yazı tipi */
 }
+
+/* =========================================
+   3. GENEL SIFIRLAMALAR (Reset CSS)
+========================================= */
 *,
 *::before,
 *::after {
   box-sizing: border-box; /* İç boşlukların (padding) ve kenarlıkların genişliği taşırmasını engeller */
 }
-.container {
 
+body {
+  font-family: var(--font-family-main); /* Tüm sitede varsayılan fontu uygular */
+  background-color: var(--color-white); /* Varsayılan arkaplan */
+  color: var(--color-black); /* Varsayılan yazı rengi */
+  margin: 0; /* Tarayıcının varsayılan dış boşluklarını sıfırlar */
+  padding: 0; /* Tarayıcının varsayılan iç boşluklarını sıfırlar */
+}
+
+.container {
   width: 100%; /* Bulunduğu alanın tamamını kaplar */
   max-width: 375px; /* Mobilde maksimum genişlik sınırı */
   margin: 0 auto; /* Kutuyu ekranın tam ortasına hizalar */
@@ -38,7 +53,7 @@ a {
 }
 
 /* =========================================
-   4. ORTAK BİLEŞENLER
+   4. ORTAK BİLEŞENLER (BUTONLAR VE ANİMASYONLAR)
 ========================================= */
 .btn-primary {
   font-family: var(--font-family-main);
@@ -53,6 +68,25 @@ a {
   text-transform: uppercase; /* Tüm harfleri büyük harf yapar */
   display: inline-block; /* Genişliği içeriğine göre ayarlar ama margin/padding kabul eder */
   text-align: center; /* Metni butonun ortasına hizalar */
+  
+  /* YENİ: Animasyonların yumuşak geçişi için eklendi */
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s ease;
+}
+
+/* YENİ: MASAÜSTÜ İÇİN HOVER (ÜZERİNE GELME) DURUMU */
+/* Sadece fare kullanılan cihazlarda çalışır, mobilde dokunma takılmalarını önler */
+@media (hover: hover) {
+  .btn-primary:hover {
+    background-color: var(--color-accent); /* Açık pembe (Blush) zemin */
+    color: var(--color-primary); /* Bordo yazı */
+  }
+}
+
+/* YENİ: TÜM CİHAZLAR İÇİN ACTIVE (TIKLAMA/DOKUNMA) DURUMU */
+.btn-primary:active {
+  background-color: var(--color-white); /* Beyaz zemin */
+  color: var(--color-primary); /* Bordo yazı */
+  transform: scale(0.96); /* Tıklandığında hafifçe içe göçme efekti verir */
 }
 
 /* =========================================
@@ -109,6 +143,11 @@ a {
   /* GİZLEME VE ANİMASYON KODU */
   transform: translateX(100%); /* Menüyü %100 sağa iterek ekran dışına çıkarır (Gizler) */
   transition: transform 0.3s ease-in-out; /* JavaScript ile açılırken yumuşakça kaymasını sağlar */
+}
+
+/* JS tarafından eklendiğinde menünün ekrana kaymasını sağlayan sınıf */
+.mobile-menu-overlay.is-open {
+  transform: translateX(0); /* Menüyü orijinal konumuna (ekranın içine) getirir */
 }
 
 .mobile-menu-content {
@@ -225,6 +264,19 @@ a {
   .container { 
     max-width: 768px; /* Tablet için maksimum genişlik */
   }
+
+  .hero {
+    padding-top: 120px; /* Header ile yazı arasında daha fazla mesafe bırakır */
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: column; /* İçeriklerin tablet görünümünde alt alta durmasını zorlar */
+  }
+
+  .hero-content {
+    margin-bottom: 40px; /* Yazı bittikten sonra resimle arasına kesin boşluk koyar, çakışmayı engeller */
+  }
   
   .hero-title {
     font-size: 76px; /* Tablette başlığı büyütür */
@@ -244,6 +296,7 @@ a {
   .hero-image-bg {
     min-height: 450px; /* Tablette resmi biraz daha uzatır */
     background-image: url('../img/meyvetabagi/meyvelertab.jpg'); /* Tablet resmini yükler */
+    border-radius: 24px; /* Resmin köşelerini hafif yuvarlatır */
   }
 
   .mobile-menu-overlay {
@@ -311,7 +364,8 @@ a {
 
   .hero-container {
     width: 100%;
-    display: flex; /* İçeriklerin düzeni için */
+    display: flex; 
+    flex-direction: row; /* İçeriklerin PC'de yan yana durmasını sağlar */
   }
 
   /* Yazı Kısmı (Sol taraf) */
@@ -319,6 +373,7 @@ a {
     width: 50%; /* Ekranın sol %50'sini yazılara ayırır */
     padding-right: 40px; /* Yazı ile sağdaki resim arasına boşluk koyar */
     max-width: 550px; /* Yazıların çok fazla uzamasını engelleyip alt alta estetik kırılmasını sağlar */
+    margin-bottom: 0; /* Tabletteki alt boşluğu sıfırlar */
     position: relative;
     z-index: 2; /* Resmin arkasında kalmasını engeller */
   }
@@ -345,6 +400,7 @@ a {
     background-image: url('../img/meyvetabagi/meyvelerpc.jpg'); /* PC resmini yükler */
     background-size: cover;
     background-position: center;
+    border-radius: 0; /* Masaüstünde tam ekran olduğu için köşe yuvarlamayı iptal eder */
     z-index: 1; /* Yazıların arkasında durmasını sağlar */
   }
 }
