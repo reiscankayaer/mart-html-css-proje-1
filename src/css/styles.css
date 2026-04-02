@@ -1,0 +1,51 @@
+/**
+  |============================
+  | include css partials with
+  | default @import url()
+  |============================
+*/
+/* Common styles */
+@import url('./reset.css');
+@import url('./base.css');
+@import url('./container.css');
+@import url('./animations.css');
+
+/* Sections style */
+@import url('./header.css');
+@import url('./vite-promo.css');
+@import url('./badges.css');
+@import url('./back-link.css');
+@import url('./footer.css');
+@import url('./advertisement.css');
+@import url('./vegetables.css');
+@import url('./reviews.css');
+@import url('./your-order.css');
+@import url('./tablet.css');
+@import url('./mobile.css');
+/* =========================================
+   1. GOOGLE FONTS VE DIŞA AKTARIMLAR
+========================================= */
+/* Projede kullanılacak Inter Tight fontunun farklı kalınlıklarını (500, 600, 700) Google'dan çeker */
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&display=swap');
+
+/* =========================================
+   2. RENK VE FONT DEĞİŞKENLERİ (Kısayollar)
+========================================= */
+:root {
+  --color-black: #141414; /* Siyah metin rengi */
+  --color-white: #fbfbfb; /* Arka plan ve beyaz metin rengi */
+  --color-primary: #7a3145; /* Ana marka rengi (Şarap/Bordo - Butonlar için) */
+  --color-accent: #d4bfc4; /* Vurgu rengi (Açık pembe) */
+  --color-green: #576f35; /* Yeşil arka plan rengi */
+  --color-grey: #858585; /* Gri detay rengi */
+  --font-family-main: 'Inter Tight', sans-serif; /* Ana yazı tipi */
+}
+
+/* =========================================
+   3. GENEL SIFIRLAMALAR (Reset CSS)
+========================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* İç boşlukların (padding) ve kenarlıkların genişliği taşırmasını engeller */
+}

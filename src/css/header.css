@@ -1,0 +1,406 @@
+/* =========================================
+   1. GOOGLE FONTS VE DIŞA AKTARIMLAR
+========================================= */
+/* Projede kullanılacak Inter Tight fontunun farklı kalınlıklarını (500, 600, 700) Google'dan çeker */
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&display=swap');
+
+/* =========================================
+   2. RENK VE FONT DEĞİŞKENLERİ (Kısayollar)
+========================================= */
+:root {
+  --color-black: #141414; /* Siyah metin rengi */
+  --color-white: #FBFBFB; /* Arka plan ve beyaz metin rengi */
+  --color-primary: #7A3145; /* Ana marka rengi (Şarap/Bordo - Butonlar için) */
+  --color-accent: #D4BFC4; /* Vurgu rengi (Açık pembe) */
+  --color-green: #576F35; /* Yeşil arka plan rengi */
+  --color-grey: #858585; /* Gri detay rengi */
+  --font-family-main: 'Inter Tight', sans-serif; /* Ana yazı tipi */
+}
+
+/* =========================================
+   3. GENEL SIFIRLAMALAR (Reset CSS)
+========================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* İç boşlukların (padding) ve kenarlıkların genişliği taşırmasını engeller */
+}
+
+body {
+  font-family: var(--font-family-main); /* Tüm sitede varsayılan fontu uygular */
+  background-color: var(--color-white); /* Varsayılan arkaplan */
+  color: var(--color-black); /* Varsayılan yazı rengi */
+  margin: 0; /* Tarayıcının varsayılan dış boşluklarını sıfırlar */
+  padding: 0; /* Tarayıcının varsayılan iç boşluklarını sıfırlar */
+}
+
+.container {
+  width: 100%; /* Bulunduğu alanın tamamını kaplar */
+  max-width: 375px; /* Mobilde maksimum genişlik sınırı */
+  margin: 0 auto; /* Kutuyu ekranın tam ortasına hizalar */
+  padding: 0 20px; /* İçeriklerin sağdan ve soldan ekrana yapışmasını engeller */
+}
+
+ul {
+  list-style: none; /* Liste elemanlarının başındaki noktaları (madde işaretlerini) gizler */
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none; /* Linklerin altındaki varsayılan çizgiyi kaldırır */
+  color: inherit; /* Linklerin rengini, bulunduğu kutunun renginden almasını sağlar */
+}
+
+/* =========================================
+   4. ORTAK BİLEŞENLER (BUTONLAR VE ANİMASYONLAR)
+========================================= */
+.btn-primary {
+  font-family: var(--font-family-main);
+  font-weight: 600; /* Yarı kalın yazı */
+  font-size: 18px; /* Yazı boyutu */
+  line-height: 20px; /* Satır yüksekliği */
+  letter-spacing: -0.015em; /* Harfler arası boşluğu hafifçe daraltır (Figma -1.5%) */
+  background-color: var(--color-primary); /* Bordo arka plan */
+  color: var(--color-white); /* Beyaz yazı */
+  padding: 12px 24px; /* Üst/Alt 12px, Sağ/Sol 24px iç boşluk */
+  border-radius: 100px; /* Butonu tam yuvarlak (hap şeklinde) yapar */
+  text-transform: uppercase; /* Tüm harfleri büyük harf yapar */
+  display: inline-block; /* Genişliği içeriğine göre ayarlar ama margin/padding kabul eder */
+  text-align: center; /* Metni butonun ortasına hizalar */
+  
+  /* YENİ: Animasyonların yumuşak geçişi için eklendi */
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s ease;
+}
+
+/* YENİ: MASAÜSTÜ İÇİN HOVER (ÜZERİNE GELME) DURUMU */
+/* Sadece fare kullanılan cihazlarda çalışır, mobilde dokunma takılmalarını önler */
+@media (hover: hover) {
+  .btn-primary:hover {
+    background-color: var(--color-accent); /* Açık pembe (Blush) zemin */
+    color: var(--color-primary); /* Bordo yazı */
+  }
+}
+
+/* YENİ: TÜM CİHAZLAR İÇİN ACTIVE (TIKLAMA/DOKUNMA) DURUMU */
+.btn-primary:active {
+  background-color: var(--color-white); /* Beyaz zemin */
+  color: var(--color-primary); /* Bordo yazı */
+  transform: scale(0.96); /* Tıklandığında hafifçe içe göçme efekti verir */
+}
+
+/* =========================================
+   5. HEADER (ÜST BİLGİ) BÖLÜMÜ
+========================================= */
+.header {
+  position: absolute; /* Header'ı akıştan çıkarıp sayfanın en üstüne sabitler (Hero resminin üstüne biner) */
+  top: 0;
+  left: 0;
+  width: 100%; /* Ekranı boydan boya kaplar */
+  padding: 20px 0; /* Üstten ve alttan 20px boşluk verir */
+  z-index: 10; /* Diğer elemanların üstünde kalmasını sağlar */
+}
+
+.header-container {
+  display: flex; /* İçindeki logo ve menüyü yan yana dizer */
+  justify-content: space-between; /* Birini en sola, diğerini en sağa iter */
+  align-items: center; /* Dikey eksende tam ortalar */
+  color: var(--color-white); /* İçindeki yazıların beyaz olmasını sağlar */
+}
+
+.logo {
+  display: flex; /* İkon ve yazıyı yan yana getirir */
+  align-items: center; /* İkon ve yazıyı dikeyde ortalar */
+  gap: 8px; /* İkon ile yazı arasına 8px boşluk koyar */
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.header-right {
+  display: none; /* MOBİLDE GİZLİ: Masaüstü menüsünü mobilde tamamen saklar */
+}
+
+.menu-toggle-btn {
+  background: none; /* Butonun varsayılan gri arkaplanını siler */
+  border: none; /* Çerçeveyi siler */
+  color: var(--color-white); /* İkon rengini beyaz yapar */
+  cursor: pointer; /* Üzerine gelince fareyi el işaretine çevirir */
+  padding: 0;
+}
+
+/* =========================================
+   6. MOBİL MENÜ (AÇILIR KENAR ÇUBUĞU)
+========================================= */
+.mobile-menu-overlay {
+  position: fixed; /* Ekran kaydırılsa bile menü hep ekranda kalır */
+  top: 0;
+  right: 0;
+  width: 100%; /* Mobilde ekranı tam kaplar */
+  height: 100vh; /* Ekranın dikeyde tamamını kaplar (Viewport Height) */
+  background-color: var(--color-green); /* Yeşil arkaplan */
+  z-index: 999; /* Sayfadaki her şeyin en üstünde durur */
+  
+  /* GİZLEME VE ANİMASYON KODU */
+  transform: translateX(100%); /* Menüyü %100 sağa iterek ekran dışına çıkarır (Gizler) */
+  transition: transform 0.3s ease-in-out; /* JavaScript ile açılırken yumuşakça kaymasını sağlar */
+}
+
+/* JS tarafından eklendiğinde menünün ekrana kaymasını sağlayan sınıf */
+.mobile-menu-overlay.is-open {
+  transform: translateX(0); /* Menüyü orijinal konumuna (ekranın içine) getirir */
+}
+
+.mobile-menu-content {
+  display: flex; /* İçerikleri esnek kutuya çevirir */
+  flex-direction: column; /* İçerikleri alt alta dizer */
+  height: 100%; /* Kaplayıcının tüm boyunu alır */
+  padding: 32px 20px 40px; /* Üstten 32, sağ/sol 20, alttan 40px boşluk */
+}
+
+.menu-close-btn {
+  align-self: flex-end; /* Sadece çarpı ikonunu en sağa yaslar */
+  background: none;
+  border: none;
+  color: var(--color-white);
+  cursor: pointer;
+  padding: 0;
+}
+
+.mobile-nav {
+  flex-grow: 1; /* Ortadaki boşluğu kaplayarak üstteki çarpıyı ve alttaki butonu köşelere iter */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Linkleri dikeyde tam ortaya hizalar */
+  align-items: center; /* Linkleri yatayda tam ortaya hizalar */
+}
+
+.mobile-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Butonlar arasına 16px dikey boşluk ekler */
+  text-align: center;
+}
+
+/* Standart Mobil Link Görünümü (Şeffaf zemin, Beyaz çerçeve) */
+.mobile-nav-link {
+  display: inline-block;
+  padding: 12px 28px;
+  border: 1px solid var(--color-white); /* Beyaz çizgi */
+  border-radius: 100px; /* Yuvarlak köşeler */
+  color: var(--color-white);
+  background-color: transparent; /* İçi şeffaf */
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease; /* Hover veya aktif olma durumunda renklerin yumuşak geçişi */
+  min-width: 140px; /* Tüm butonların eşit genişlikte görünmesini sağlar */
+}
+
+/* Aktif (Seçili) Mobil Link Görünümü (Beyaz zemin, Bordo yazı) */
+.mobile-nav-link.active {
+  background-color: var(--color-white); /* Zemin tam beyaz olur */
+  color: var(--color-primary); /* Yazı bordo olur */
+  border-color: var(--color-white); /* Çerçeve beyaz kalır */
+  font-weight: 600; /* Yazı biraz kalınlaşır */
+}
+
+.mobile-shop-btn {
+  align-self: center; /* Alttaki butonu yatayda ortaya hizalar */
+}
+
+/* =========================================
+   7. HERO (ANA VİTRİN) BÖLÜMÜ
+========================================= */
+.hero {
+  background-color: var(--color-green);
+  color: var(--color-white);
+  padding-top: 80px; /* İçeriği üstteki menüden aşağı iter (Mobilde) */
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column; /* Mobilde yazıyı ve resmi alt alta dizer */
+}
+
+.hero-title {
+  font-weight: 600; 
+  font-size: 48px; /* Mobil başlık boyutu */
+  line-height: 48px;
+  letter-spacing: -0.015em; 
+  margin-bottom: 16px; /* Açıklama ile arasına boşluk */
+  text-transform: uppercase;
+}
+
+.hero-description {
+  font-weight: 500; 
+  font-size: 14px; /* Mobil açıklama boyutu */
+  line-height: 20px;
+  letter-spacing: 0;
+  margin-bottom: 32px;
+  color: rgba(251, 251, 251, 0.8); /* %80 şeffaflıkta beyaz (Yazıyı yumuşatır) */
+}
+
+.hero-image-bg {
+  width: 100%;
+  min-height: 350px; /* Mobilde resmin alacağı minimum dikey boy */
+  background-repeat: no-repeat; /* Resmin mozaik gibi kendini tekrar etmesini engeller */
+  background-position: center; /* Resmi kutunun tam ortasına odaklar */
+  background-size: cover; /* Resmi en-boy oranını bozmadan kutuyu tam kaplayacak şekilde esnetir */
+  background-image: url('../img/meyvetabagi/meyvelermobil.jpg'); /* Mobil resmi yükler */
+}
+
+/* =========================================
+   8. MEDYA SORGULARI (DUYARLI TASARIM)
+========================================= */
+
+/* --- 8.1. MOBİL RETİNA (Yüksek Çözünürlüklü) EKRANLAR --- */
+@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hero-image-bg {
+    background-image: url('../img/meyvetabagi/meyvelermobil@2.jpg'); /* Netlik için @2x resmi yükler */
+  }
+}
+
+/* --- 8.2. TABLET EKRANLAR (768px ve üzeri) --- */
+@media (min-width: 768px) {
+  .container { 
+    max-width: 768px; /* Tablet için maksimum genişlik */
+  }
+
+  .hero {
+    padding-top: 120px; /* Header ile yazı arasında daha fazla mesafe bırakır */
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: column; /* İçeriklerin tablet görünümünde alt alta durmasını zorlar */
+  }
+
+  .hero-content {
+    margin-bottom: 40px; /* Yazı bittikten sonra resimle arasına kesin boşluk koyar, çakışmayı engeller */
+  }
+  
+  .hero-title {
+    font-size: 76px; /* Tablette başlığı büyütür */
+    line-height: 76px;
+  }
+  
+  .hero-description {
+    font-size: 18px; /* Tablette açıklamayı büyütür */
+    line-height: 20px;
+  }
+
+  .nav-link {
+    font-size: 18px;
+    line-height: 20px;
+  }
+  
+  .hero-image-bg {
+    min-height: 450px; /* Tablette resmi biraz daha uzatır */
+    background-image: url('../img/meyvetabagi/meyvelertab.jpg'); /* Tablet resmini yükler */
+    border-radius: 24px; /* Resmin köşelerini hafif yuvarlatır */
+  }
+
+  .mobile-menu-overlay {
+    width: 50vw; /* TABLET ÖZEL: Mobil menünün ekranın sadece sağ yarısını kaplamasını sağlar */
+    border-left: 1px solid rgba(251, 251, 251, 0.2); /* Menü ile ekranı ayıran ince sol çizgi */
+  }
+}
+
+/* --- 8.3. TABLET RETİNA EKRANLAR --- */
+@media (min-width: 768px) and (min-device-pixel-ratio: 2), 
+       (min-width: 768px) and (min-resolution: 192dpi) {
+  .hero-image-bg {
+    background-image: url('../img/meyvetabagi/meyvelertab@2.jpg');
+  }
+}
+
+/* --- 8.4. MASAÜSTÜ (PC) EKRANLAR (1280px ve üzeri) --- */
+@media (min-width: 1280px) {
+  .container { 
+    max-width: 1280px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
+  }
+
+  /* -- MASAÜSTÜ HEADER DEĞİŞİKLİKLERİ -- */
+  .menu-toggle-btn { 
+    display: none; /* Mobildeki hamburger ikonu silinir */
+  }
+  
+  .mobile-menu-overlay {
+    display: none !important; /* ÇOK ÖNEMLİ: Yeşil mobil açılır menüyü PC'de tamamen yok eder */
+  }
+
+  .header-right { 
+    display: flex; /* Yukarıda gizlediğimiz masaüstü menüsünü görünür yapar */
+    align-items: center; 
+    gap: 16px; /* Menü ile 'Shop Now' butonu arasına boşluk */
+  }
+  
+  .desktop-nav .nav-list { 
+    display: flex; /* Linkleri yan yana dizer */
+    gap: 8px; /* Linkler arası boşluk */
+  }
+  
+  .nav-link {
+    font-size: 14px; 
+    padding: 12px 20px;
+    border: 1px solid rgba(251, 251, 251, 0.4); /* Masaüstü menü linklerine yuvarlak çerçeve */
+    border-radius: 100px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-link:hover { 
+    background-color: rgba(251, 251, 251, 0.1); /* Fare ile üzerine gelince hafifçe beyazlar */
+  }
+
+  /* -- MASAÜSTÜ HERO (BÖLÜNMÜŞ EKRAN) DEĞİŞİKLİKLERİ -- */
+  .hero {
+    position: relative; /* Resmin konumunu ayarlayabilmek için referans noktası olur */
+    padding-top: 0; /* Mobildeki üst boşluğu siler */
+    min-height: 100vh; /* Ekranı dikeyde tam kaplar */
+    display: flex;
+    align-items: center; /* İçindeki metinleri dikeyde ortalar */
+  }
+
+  .hero-container {
+    width: 100%;
+    display: flex; 
+    flex-direction: row; /* İçeriklerin PC'de yan yana durmasını sağlar */
+  }
+
+  /* Yazı Kısmı (Sol taraf) */
+  .hero-content {
+    width: 50%; /* Ekranın sol %50'sini yazılara ayırır */
+    padding-right: 40px; /* Yazı ile sağdaki resim arasına boşluk koyar */
+    max-width: 550px; /* Yazıların çok fazla uzamasını engelleyip alt alta estetik kırılmasını sağlar */
+    margin-bottom: 0; /* Tabletteki alt boşluğu sıfırlar */
+    position: relative;
+    z-index: 2; /* Resmin arkasında kalmasını engeller */
+  }
+
+  .hero-title { 
+    font-size: 76px; /* PC başlık boyutu */
+    line-height: 76px; 
+    margin-bottom: 24px; 
+  }
+  
+  .hero-description { 
+    font-size: 18px; /* PC açıklama boyutu */
+    line-height: 24px; 
+    max-width: 480px; 
+  }
+
+  /* Resim Kısmı (Sağ taraf) */
+  .hero-image-bg {
+    position: absolute; /* Kutudan çıkarıp serbest bırakır */
+    top: 0;
+    right: 0; /* Sayfanın en sağına yapıştırır */
+    width: 50vw; /* Ekranın (Viewport) sağdan tam %50'sini (yarısını) kaplamasını sağlar */
+    height: 100%; /* Dikeyde ekranı tam kaplar */
+    background-image: url('../img/meyvetabagi/meyvelerpc.jpg'); /* PC resmini yükler */
+    background-size: cover;
+    background-position: center;
+    border-radius: 0; /* Masaüstünde tam ekran olduğu için köşe yuvarlamayı iptal eder */
+    z-index: 1; /* Yazıların arkasında durmasını sağlar */
+  }
+}

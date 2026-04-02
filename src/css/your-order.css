@@ -1,0 +1,321 @@
+#your-order {
+  background-color: var(--color-green);
+}
+
+#your-order .container {
+  padding: 80px 20px;
+}
+
+.your-order-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.your-order-card {
+  width: 100%;
+  height: auto;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  height: auto;
+}
+
+#header-card p {
+  padding-bottom: 20px;
+}
+
+.card-wrapper-outer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#form-card,
+#social-card {
+  padding: 40px 20px;
+  border-radius: 30px;
+}
+
+#form-card h3 {
+  padding-bottom: 20px;
+}
+
+#form-card form {
+  font-family: var(--font-family-main);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#form-card input {
+  border: 1px solid var(--color-grey);
+  border-radius: 30px;
+  height: 48px;
+  padding-left: 14px;
+  color: var(--color-black);
+  font-family: var(--font-family-main);
+}
+
+#form-card textarea {
+  border: 1px solid var(--color-grey);
+  border-radius: 15px;
+  height: 92px;
+  padding-left: 14px;
+  padding-top: 16px;
+  color: var(--color-black);
+  font-family: var(--font-family-main);
+}
+
+#form-card input::placeholder,
+#form-card textarea::placeholder {
+  color: var(--color-black);
+}
+
+#form-card input:hover,
+#form-card textarea:hover,
+#form-card input:focus,
+#form-card textarea:focus {
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+#form-card input:not(:placeholder-shown):invalid {
+  border-color: #e74a3b;
+}
+
+#form-card input:not(:placeholder-shown):valid {
+  border-color: #3cbc81;
+}
+
+#form-card button {
+  margin-top: 4px;
+  border: none;
+  border-radius: 30px;
+  height: 48px;
+  font-family: var(--font-family-main);
+}
+
+.your-order-image {
+  width: 100%;
+  min-height: 272px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url('../img/meyvesikma/sıkmamobil.jpg');
+  border-radius: 15px;
+}
+
+.social-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#social-card ul {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* typos */
+.uppercase {
+  text-transform: uppercase;
+}
+
+.title-two {
+  font-weight: 600;
+  font-size: 48px;
+  letter-spacing: -0.015em;
+  line-height: 1.08;
+}
+
+.title-three {
+  font-weight: 600;
+  font-size: 28px;
+  letter-spacing: -0.015em;
+  line-height: 1;
+}
+
+.body-one {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.42;
+}
+
+.body-two {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.42;
+}
+
+.accent-text {
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: -0.015em;
+  line-height: 1.11;
+}
+
+/* text-colors */
+
+.color-black {
+  color: var(--color-black);
+}
+
+.color-white {
+  color: var(--color-white);
+}
+
+.color-primary {
+  color: var(--color-primary);
+}
+
+.color-accent {
+  color: var(--color-accent);
+}
+
+.color-green {
+  color: var(--color-green);
+}
+
+.color-grey {
+  color: var(--color-grey);
+}
+
+/* background-colors */
+.bg-color-white {
+  background-color: var(--color-white);
+}
+
+.bg-color-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-color-green {
+  background-color: var(--color-green);
+}
+
+@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .your-order-image {
+    background-image: url('../img/meyvesikma/sıkmamobil@2.jpg');
+  }
+}
+
+/* Styles for Tablet devices */
+@media only screen and (min-width: 768px) {
+  #your-order .container {
+    padding: 100px 32px;
+  }
+
+  .card-wrapper {
+    gap: 24px;
+  }
+
+  #form-card h3 {
+    margin-bottom: 28px;
+  }
+
+  #header-card,
+  #form-card,
+  #social-card {
+    max-width: 640px;
+  }
+
+  .card-wrapper-outer {
+    gap: 32px;
+    padding: 0 32px;
+  }
+
+  #form-card .card-wrapper {
+    max-width: 440px;
+    margin: 0 auto;
+  }
+
+  #form-card {
+    padding: 72px 100px;
+  }
+
+  #social-card {
+    padding: 52px;
+  }
+
+  .your-order-image {
+    min-height: 316px;
+    background-image: url('../img/meyvesikma/sıkmatablet.jpg');
+  }
+
+  @media (min-width: 768px) and (min-device-pixel-ratio: 2),
+    (min-width: 768px) and (min-resolution: 192dpi) {
+    .your-order-image {
+      background-image: url('../img/meyvesikma/sıkmatablet@2.jpg');
+    }
+  }
+
+  .title-two {
+    font-size: 64px;
+    line-height: 1;
+  }
+
+  .title-three {
+    font-size: 32px;
+  }
+
+  .body-one {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .body-two {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+/* Styles for Desktop devices */
+@media only screen and (min-width: 1280px) {
+  #your-order .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 100px 100px;
+  }
+
+  #header-card {
+    max-width: 751px;
+  }
+
+  .card-wrapper-outer {
+    flex-direction: row;
+    padding: 0;
+  }
+
+  #form-card,
+  #social-card {
+    max-width: 524px;
+    padding: 52px 48px;
+  }
+
+  #form-card .card-wrapper {
+    max-width: 428px;
+    margin: 0 auto;
+  }
+
+  .social-wrapper {
+    margin-top: 56px;
+  }
+
+  .your-order-image {
+    min-height: 352px;
+    background-image: url('../img/meyvesikma/sıkma.jpg');
+  }
+
+  @media (min-width: 1280px) and (min-device-pixel-ratio: 2),
+    (min-width: 1280px) and (min-resolution: 192dpi) {
+    .your-order-image {
+      background-image: url('../img/meyvesikma/sıkma@2.jpg');
+    }
+  }
+}
