@@ -12,6 +12,7 @@
 
 /* Sections style */
 @import url('./header.css');
+@import url('./how-it-works.css');
 @import url('./vite-promo.css');
 @import url('./badges.css');
 @import url('./back-link.css');
@@ -19,6 +20,7 @@
 @import url('./advertisement.css');
 @import url('./vegetables.css');
 @import url('./reviews.css');
+@import url('./your-order.css');
 @import url('./tablet.css');
 @import url('./mobile.css');
 /* =========================================

@@ -6,8 +6,9 @@ import SortCss from 'postcss-sort-media-queries';
 
 export default defineConfig(({ command }) => {
   return {
+    base: '/mart-html-css-proje-1/',
     define: {
-      [command === 'serve' ? 'global' : '_global']: {},
+      global: {},
     },
     root: 'src',
     build: {
