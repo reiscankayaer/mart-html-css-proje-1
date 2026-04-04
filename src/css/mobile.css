@@ -7,9 +7,9 @@
   }
 
   .adv-text {
-    font-size: 52px;
-    line-height: 52px;
-    letter-spacing: -0.78px;
+    font-size: 48px;
+    line-height: 1.08333;
+    letter-spacing: -0.01em;
     max-width: 335px;
     min-height: 312px;
     gap: 10px;
