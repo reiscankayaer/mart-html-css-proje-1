@@ -9,10 +9,10 @@
 ========================================= */
 :root {
   --color-black: #141414; /* Siyah metin rengi */
-  --color-white: #FBFBFB; /* Arka plan ve beyaz metin rengi */
-  --color-primary: #7A3145; /* Ana marka rengi (Şarap/Bordo - Butonlar için) */
-  --color-accent: #D4BFC4; /* Vurgu rengi (Açık pembe) */
-  --color-green: #576F35; /* Yeşil arka plan rengi */
+  --color-white: #fbfbfb; /* Arka plan ve beyaz metin rengi */
+  --color-primary: #7a3145; /* Ana marka rengi (Şarap/Bordo - Butonlar için) */
+  --color-accent: #d4bfc4; /* Vurgu rengi (Açık pembe) */
+  --color-green: #576f35; /* Yeşil arka plan rengi */
   --color-grey: #858585; /* Gri detay rengi */
   --font-family-main: 'Inter Tight', sans-serif; /* Ana yazı tipi */
 }
@@ -27,7 +27,9 @@
 }
 
 body {
-  font-family: var(--font-family-main); /* Tüm sitede varsayılan fontu uygular */
+  font-family: var(
+    --font-family-main
+  ); /* Tüm sitede varsayılan fontu uygular */
   background-color: var(--color-white); /* Varsayılan arkaplan */
   color: var(--color-black); /* Varsayılan yazı rengi */
   margin: 0; /* Tarayıcının varsayılan dış boşluklarını sıfırlar */
@@ -68,9 +70,12 @@ a {
   text-transform: uppercase; /* Tüm harfleri büyük harf yapar */
   display: inline-block; /* Genişliği içeriğine göre ayarlar ama margin/padding kabul eder */
   text-align: center; /* Metni butonun ortasına hizalar */
-  
+
   /* YENİ: Animasyonların yumuşak geçişi için eklendi */
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.1s ease;
 }
 
 /* YENİ: MASAÜSTÜ İÇİN HOVER (ÜZERİNE GELME) DURUMU */
@@ -139,15 +144,19 @@ a {
   height: 100vh; /* Ekranın dikeyde tamamını kaplar (Viewport Height) */
   background-color: var(--color-green); /* Yeşil arkaplan */
   z-index: 999; /* Sayfadaki her şeyin en üstünde durur */
-  
+
   /* GİZLEME VE ANİMASYON KODU */
-  transform: translateX(100%); /* Menüyü %100 sağa iterek ekran dışına çıkarır (Gizler) */
+  transform: translateX(
+    100%
+  ); /* Menüyü %100 sağa iterek ekran dışına çıkarır (Gizler) */
   transition: transform 0.3s ease-in-out; /* JavaScript ile açılırken yumuşakça kaymasını sağlar */
 }
 
 /* JS tarafından eklendiğinde menünün ekrana kaymasını sağlayan sınıf */
 .mobile-menu-overlay.is-open {
-  transform: translateX(0); /* Menüyü orijinal konumuna (ekranın içine) getirir */
+  transform: translateX(
+    0
+  ); /* Menüyü orijinal konumuna (ekranın içine) getirir */
 }
 
 .mobile-menu-content {
@@ -222,21 +231,27 @@ a {
 }
 
 .hero-title {
-  font-weight: 600; 
+  font-weight: 600;
   font-size: 48px; /* Mobil başlık boyutu */
   line-height: 48px;
-  letter-spacing: -0.015em; 
+  letter-spacing: -0.015em;
   margin-bottom: 16px; /* Açıklama ile arasına boşluk */
   text-transform: uppercase;
 }
 
 .hero-description {
-  font-weight: 500; 
+  font-weight: 500;
   font-size: 14px; /* Mobil açıklama boyutu */
   line-height: 20px;
   letter-spacing: 0;
-  margin-bottom: 32px;
-  color: rgba(251, 251, 251, 0.8); /* %80 şeffaflıkta beyaz (Yazıyı yumuşatır) */
+  padding-top: 20px;
+  padding-bottom: 40px;
+  color: rgba(
+    251,
+    251,
+    251,
+    0.8
+  ); /* %80 şeffaflıkta beyaz (Yazıyı yumuşatır) */
 }
 
 .hero-image-bg {
@@ -261,7 +276,7 @@ a {
 
 /* --- 8.2. TABLET EKRANLAR (768px ve üzeri) --- */
 @media (min-width: 768px) {
-  .container { 
+  .container {
     max-width: 768px; /* Tablet için maksimum genişlik */
   }
 
@@ -277,22 +292,24 @@ a {
   .hero-content {
     margin-bottom: 40px; /* Yazı bittikten sonra resimle arasına kesin boşluk koyar, çakışmayı engeller */
   }
-  
+
   .hero-title {
     font-size: 76px; /* Tablette başlığı büyütür */
     line-height: 76px;
   }
-  
+
   .hero-description {
     font-size: 18px; /* Tablette açıklamayı büyütür */
     line-height: 20px;
+    padding-top: 40px;
+    padding-bottom: 50px;
   }
 
   .nav-link {
     font-size: 18px;
     line-height: 20px;
   }
-  
+
   .hero-image-bg {
     min-height: 450px; /* Tablette resmi biraz daha uzatır */
     background-image: url('../img/meyvetabagi/meyvelertab.jpg'); /* Tablet resmini yükler */
@@ -306,8 +323,8 @@ a {
 }
 
 /* --- 8.3. TABLET RETİNA EKRANLAR --- */
-@media (min-width: 768px) and (min-device-pixel-ratio: 2), 
-       (min-width: 768px) and (min-resolution: 192dpi) {
+@media (min-width: 768px) and (min-device-pixel-ratio: 2),
+  (min-width: 768px) and (min-resolution: 192dpi) {
   .hero-image-bg {
     background-image: url('../img/meyvetabagi/meyvelertab@2.jpg');
   }
@@ -315,42 +332,47 @@ a {
 
 /* --- 8.4. MASAÜSTÜ (PC) EKRANLAR (1280px ve üzeri) --- */
 @media (min-width: 1280px) {
-  .container { 
-    max-width: 1280px; 
-    margin: 0 auto; 
-    padding: 0 20px; 
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
   }
 
   /* -- MASAÜSTÜ HEADER DEĞİŞİKLİKLERİ -- */
-  .menu-toggle-btn { 
+  .menu-toggle-btn {
     display: none; /* Mobildeki hamburger ikonu silinir */
   }
-  
+
   .mobile-menu-overlay {
     display: none !important; /* ÇOK ÖNEMLİ: Yeşil mobil açılır menüyü PC'de tamamen yok eder */
   }
 
-  .header-right { 
+  .header-right {
     display: flex; /* Yukarıda gizlediğimiz masaüstü menüsünü görünür yapar */
-    align-items: center; 
+    align-items: center;
     gap: 16px; /* Menü ile 'Shop Now' butonu arasına boşluk */
   }
-  
-  .desktop-nav .nav-list { 
+
+  .desktop-nav .nav-list {
     display: flex; /* Linkleri yan yana dizer */
     gap: 8px; /* Linkler arası boşluk */
   }
-  
+
   .nav-link {
-    font-size: 14px; 
+    font-size: 14px;
     padding: 12px 20px;
     border: 1px solid rgba(251, 251, 251, 0.4); /* Masaüstü menü linklerine yuvarlak çerçeve */
     border-radius: 100px;
     transition: background-color 0.3s ease;
   }
-  
-  .nav-link:hover { 
-    background-color: rgba(251, 251, 251, 0.1); /* Fare ile üzerine gelince hafifçe beyazlar */
+
+  .nav-link:hover {
+    background-color: rgba(
+      251,
+      251,
+      251,
+      0.1
+    ); /* Fare ile üzerine gelince hafifçe beyazlar */
   }
 
   /* -- MASAÜSTÜ HERO (BÖLÜNMÜŞ EKRAN) DEĞİŞİKLİKLERİ -- */
@@ -364,7 +386,7 @@ a {
 
   .hero-container {
     width: 100%;
-    display: flex; 
+    display: flex;
     flex-direction: row; /* İçeriklerin PC'de yan yana durmasını sağlar */
   }
 
@@ -378,16 +400,18 @@ a {
     z-index: 2; /* Resmin arkasında kalmasını engeller */
   }
 
-  .hero-title { 
+  .hero-title {
     font-size: 76px; /* PC başlık boyutu */
-    line-height: 76px; 
-    margin-bottom: 24px; 
+    line-height: 76px;
+    margin-bottom: 24px;
   }
-  
-  .hero-description { 
+
+  .hero-description {
     font-size: 18px; /* PC açıklama boyutu */
-    line-height: 24px; 
-    max-width: 480px; 
+    line-height: 24px;
+    max-width: 480px;
+    padding-top: 128px;
+    padding-bottom: 50px;
   }
 
   /* Resim Kısmı (Sağ taraf) */
