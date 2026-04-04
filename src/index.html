@@ -1,25 +1,62 @@
 <!doctype html>
-<html lang="en">
+<html lang="tr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Green Harvest - Fresh Organic Vegetables Delivered to Your Doorstep
-    </title>
-    <link rel="stylesheet" href="./css/styles.css" />
+    <title>GreenHarvest – Footer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="footer.css" />
   </head>
   <body>
-    <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-left">
+            <a href="/" class="footer-logo">
+              <svg class="logo-icon" width="24" height="24" aria-hidden="true">
+                <use href="./img/icon/icons.svg#icon-logo"></use>
+              </svg>
+              GREEN.HARVEST
+            </a>
+            <p class="footer-description">
+              Whether you're looking for a healthy snack or a thoughtful gift,
+              our fruit baskets are the perfect choice.
+            </p>
+          </div>
 
-    <main>
-      <load src="./partials/main.html" />
-      <load src="./partials/advertisement.html" />
-      <load src="./partials/vegetables.html" />
-      <load src="./partials/reviews.html" />
-    </main>
-    <load src="./partials/footer.html" />
+          <nav class="footer-nav" aria-label="Footer navigation">
+            <ul class="footer-nav-list">
+              <li><a href="#how-it-works">HOW IT WORKS</a></li>
+              <li><a href="#vegetables">VEGETABLES</a></li>
+              <li><a href="#reviews">REVIEWS</a></li>
+            </ul>
+          </nav>
 
-    <script type="module" src="./main.js"></script>
+          <address class="footer-contact">
+            <a href="tel:+380684439426" class="contact-link">
+              +380 (68) 443-94-26
+            </a>
+            <p class="footer-address">
+              1678 S. Pioneer Road Salt<br />
+              Lake City UT 84104
+            </p>
+          </address>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="footer-legal">
+            <a href="/privacy">Privacy Policy</a>
+            <span class="separator" aria-hidden="true">/</span>
+            <a href="/cookies">Cookie settings</a>
+          </div>
+          <p class="copyright">©Green Harvest 2023</p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
