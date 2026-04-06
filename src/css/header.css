@@ -27,9 +27,7 @@
 }
 
 body {
-  font-family: var(
-    --font-family-main
-  ); /* Tüm sitede varsayılan fontu uygular */
+  font-family: var(--font-family-main); /* Tüm sitede varsayılan fontu uygular */
   background-color: var(--color-white); /* Varsayılan arkaplan */
   color: var(--color-black); /* Varsayılan yazı rengi */
   margin: 0; /* Tarayıcının varsayılan dış boşluklarını sıfırlar */
@@ -71,15 +69,10 @@ a {
   display: inline-block; /* Genişliği içeriğine göre ayarlar ama margin/padding kabul eder */
   text-align: center; /* Metni butonun ortasına hizalar */
 
-  /* YENİ: Animasyonların yumuşak geçişi için eklendi */
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease,
-    transform 0.1s ease;
+  /* Animasyonların yumuşak geçişi için eklendi */
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s ease;
 }
 
-/* YENİ: MASAÜSTÜ İÇİN HOVER (ÜZERİNE GELME) DURUMU */
-/* Sadece fare kullanılan cihazlarda çalışır, mobilde dokunma takılmalarını önler */
 @media (hover: hover) {
   .btn-primary:hover {
     background-color: var(--color-accent); /* Açık pembe (Blush) zemin */
@@ -87,7 +80,6 @@ a {
   }
 }
 
-/* YENİ: TÜM CİHAZLAR İÇİN ACTIVE (TIKLAMA/DOKUNMA) DURUMU */
 .btn-primary:active {
   background-color: var(--color-white); /* Beyaz zemin */
   color: var(--color-primary); /* Bordo yazı */
@@ -145,18 +137,12 @@ a {
   background-color: var(--color-green); /* Yeşil arkaplan */
   z-index: 999; /* Sayfadaki her şeyin en üstünde durur */
 
-  /* GİZLEME VE ANİMASYON KODU */
-  transform: translateX(
-    100%
-  ); /* Menüyü %100 sağa iterek ekran dışına çıkarır (Gizler) */
+  transform: translateX(100%); /* Menüyü %100 sağa iterek ekran dışına çıkarır (Gizler) */
   transition: transform 0.3s ease-in-out; /* JavaScript ile açılırken yumuşakça kaymasını sağlar */
 }
 
-/* JS tarafından eklendiğinde menünün ekrana kaymasını sağlayan sınıf */
 .mobile-menu-overlay.is-open {
-  transform: translateX(
-    0
-  ); /* Menüyü orijinal konumuna (ekranın içine) getirir */
+  transform: translateX(0); /* Menüyü orijinal konumuna (ekranın içine) getirir */
 }
 
 .mobile-menu-content {
@@ -190,7 +176,6 @@ a {
   text-align: center;
 }
 
-/* Standart Mobil Link Görünümü (Şeffaf zemin, Beyaz çerçeve) */
 .mobile-nav-link {
   display: inline-block;
   padding: 12px 28px;
@@ -204,7 +189,6 @@ a {
   min-width: 140px; /* Tüm butonların eşit genişlikte görünmesini sağlar */
 }
 
-/* Aktif (Seçili) Mobil Link Görünümü (Beyaz zemin, Bordo yazı) */
 .mobile-nav-link.active {
   background-color: var(--color-white); /* Zemin tam beyaz olur */
   color: var(--color-primary); /* Yazı bordo olur */
@@ -235,7 +219,7 @@ a {
   font-size: 48px; /* Mobil başlık boyutu */
   line-height: 48px;
   letter-spacing: -0.015em;
-  margin-bottom: 16px; /* Açıklama ile arasına boşluk */
+  margin-bottom: 0; /* Boşlukları ince yazıdan (description) vereceğiz */
   text-transform: uppercase;
 }
 
@@ -244,14 +228,11 @@ a {
   font-size: 14px; /* Mobil açıklama boyutu */
   line-height: 20px;
   letter-spacing: 0;
-  padding-top: 20px;
-  padding-bottom: 40px;
-  color: rgba(
-    251,
-    251,
-    251,
-    0.8
-  ); /* %80 şeffaflıkta beyaz (Yazıyı yumuşatır) */
+  color: rgba(251, 251, 251, 0.8); /* %80 şeffaflıkta beyaz (Yazıyı yumuşatır) */
+  
+  /* MOBİL İÇİN KESİN ÖLÇÜLER (Üst 20px, Alt 40px) */
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 .hero-image-bg {
@@ -296,13 +277,16 @@ a {
   .hero-title {
     font-size: 76px; /* Tablette başlığı büyütür */
     line-height: 76px;
+    margin-bottom: 0; 
   }
 
   .hero-description {
     font-size: 18px; /* Tablette açıklamayı büyütür */
     line-height: 20px;
-    padding-top: 40px;
-    padding-bottom: 50px;
+    
+    /* TABLET İÇİN KESİN ÖLÇÜLER (Üst 24px, Alt 52px) */
+    margin-top: 24px;
+    margin-bottom: 52px;
   }
 
   .nav-link {
@@ -367,12 +351,7 @@ a {
   }
 
   .nav-link:hover {
-    background-color: rgba(
-      251,
-      251,
-      251,
-      0.1
-    ); /* Fare ile üzerine gelince hafifçe beyazlar */
+    background-color: rgba(251, 251, 251, 0.1); /* Fare ile üzerine gelince hafifçe beyazlar */
   }
 
   /* -- MASAÜSTÜ HERO (BÖLÜNMÜŞ EKRAN) DEĞİŞİKLİKLERİ -- */
@@ -381,7 +360,7 @@ a {
     padding-top: 0; /* Mobildeki üst boşluğu siler */
     min-height: 100vh; /* Ekranı dikeyde tam kaplar */
     display: flex;
-    align-items: center; /* İçindeki metinleri dikeyde ortalar */
+    align-items: center; /* Sağlam kodundaki gibi her şeyi dikey ortalar */
   }
 
   .hero-container {
@@ -403,15 +382,17 @@ a {
   .hero-title {
     font-size: 76px; /* PC başlık boyutu */
     line-height: 76px;
-    margin-bottom: 24px;
+    margin-bottom: 0;
   }
 
   .hero-description {
     font-size: 18px; /* PC açıklama boyutu */
     line-height: 24px;
     max-width: 480px;
-    padding-top: 128px;
-    padding-bottom: 50px;
+    
+    /* MASAÜSTÜ (PC) İÇİN KESİN ÖLÇÜLER (Üst 128px, Alt 52px) */
+    margin-top: 128px;
+    margin-bottom: 52px;
   }
 
   /* Resim Kısmı (Sağ taraf) */
